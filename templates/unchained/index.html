@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hello</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
 </head>
 <body>
     <p>hey</p>
 
-    <script type="text/javascript">
-        loadPyodide().then((pyodide) => {
-            // Load biopython
-            pyodide.loadPackage('biopython');
-        });
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+    <script type="text/javascript" src="{% static 'unchained/index.js' %}" defer></script>
 </body>
 </html>
