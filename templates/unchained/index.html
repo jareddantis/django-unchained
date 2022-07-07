@@ -11,13 +11,10 @@
     <p>hey</p>
 
     <script type="text/javascript">
-        let pyodide = undefined;
-
-        async function main() {
-            pyodide = await loadPyodide();
-            console.log('Pyodide finished loading');
-        };
-        main().then(() => { alert('Ready') });
+        loadPyodide().then((pyodide) => {
+            // Load biopython
+            pyodide.loadPackage('biopython');
+        });
     </script>
 </body>
 </html>
