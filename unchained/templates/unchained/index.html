@@ -1,0 +1,35 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyodide + Biopython demo</title>
+	{% tailwind_css %}
+</head>
+
+<body class="leading-normal tracking-normal">
+	<div class="container mx-auto p-4">
+		<h1 class="text-3xl text-center">Pyodide + Biopython demo</h1>
+		<p class="text-center">Running Python in the browser using WebAssembly</p>
+		<br>
+		<p class="mb-2">Input <span class="underline cursor-pointer text-red-800" id="python-inclear">(clear)</span></p>
+		<textarea class="font-mono w-full cursor-not-allowed" disabled
+			name="input" id="python-stdin" rows="10"></textarea>
+		<button disabled
+			class="cursor-not-allowed rounded-full bg-teal-500 focus:bg-teal-700 w-full text-white py-2 mt-4 mb-8" id="python-run">Run</button>
+		<p class="mb-2">Output <span class="underline cursor-pointer text-red-800" id="python-outclear">(clear)</span></p>
+		<div class="bg-gray-800 px-4 py-2">
+			<code class="text-gray-100" id="python-stdout">
+				<p class="text-gray-400 italic">Loading Python...</p>
+			</code>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+	<script type="text/javascript" src="{% static 'unchained/index.js' %}" defer></script>
+</body>
+</html>
